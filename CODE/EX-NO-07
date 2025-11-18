@@ -1,0 +1,25 @@
+                      LAB EXERCISES
+ EX.NO:07
+                      USING SEQUENCES
+AIM:
+   To create a table named 'Student' with sequences.
+PROCEDURE:
+  1)Using the database 'College':
+      •	mysql> USE College;
+      •	Database changed
+  2)Create the table Student:
+      •	CREATE TABLE Student(`Class-No` int(4) AUTO_INCREMENT PRIMARY KEY, `First-Name` varchar(50), `Last-Name` varchar(50));
+      •	Query OK, 0 rows affected, 1 warning (0.14 sec)
+  3)Describing the table 'Student':
+      •	mysql> DESC Student;
+      •	3 rows in set (0.01 sec)
+  4)Inserting rows into the table 'Student':
+      •	INSERT INTO Student (`First-Name`, `Last-Name`) VALUES ('Ramesh','Raj'),('Malar','Vizhi'), ('Anil','Kodi'),  ('Suriya','Prakash'), ('Krishna', 'Kumar'), ('Kathi','Venthan');
+      •	Query OK, 6 rows affected (0.02 sec)
+      •	Records: 6  Duplicates: 0  Warnings: 0
+  5)Querying the table ‘Student’:
+      •	mysql> SELECT * FROM Student;
+      •	6 rows in set (0.00 sec)
+      •	Here Class No is automatically generated.
+RESULT:
+   Thus the above MYSQL commands are executed and the output is obtained.
