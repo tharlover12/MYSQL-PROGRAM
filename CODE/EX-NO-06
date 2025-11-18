@@ -1,0 +1,35 @@
+                        LAB EXERCISES
+ EX.NO:06
+                        USING VIEWS
+AIM:
+  To create a table 'Library' with proper fields and to create another table 'Library1' and insert rows from library using views.
+PROCEDURE:
+  1)Using the database 'College':
+      •	mysql> USE College;
+      •	Database changed
+  2)Create the table Library:
+      •	CREATE TABLE Library(`Book-No` int(4) primary key, `Book Name` varchar(80),Author varchar(50), Publisher varchar(40), Edition varchar(20),Published_on date, Price decimal(7,2)); 
+      •	Query OK, 0 rows affected, (0.18 sec)
+      •	mysql> DESCRIBE Library;
+      •	7 rows in set (0.00 sec)
+  3)Inserting rows into the table Library:
+      •	mysql> insert into library values(1000,'Programming in C','Edwin Dayanand and Selva Kumar', 'NV Publications', 'Fourth Edition', '2016-06-02',140.50);
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into library values (1001,'Operating Systems', 'Edwin Dayanand", 'NV Publications', 'Second Edition', 2010-06-12',100.00);
+      •	Query OK, 1 row affected (0.07 sec)
+      •	mysql> insert into library values (1002,'OOPs with Java', 'Selva Kumar', 'NV Publications', 'Second Edition','2014-12-12',200.00);
+      •	Query OK, 1 row affected (0.03 sec)
+      •	mysql> insert into library values(1003,'Data Structures using C','Edwin Dayanand and Selva Kumar', 'NV Publications', 'Third Edition', '2013-06-12',147.50); 
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into library values (1004, 'RDBMS', 'Edwin Dayanand and Selva Kumar', 'NV Publications', 'First Edition', '2000-06-12',100.50);
+      •	Query OK, 1 row affected (0.05 sec)
+  4)Querying the table Library:
+      •	mysql> SELECT FROM Library;
+      •	5 rows in set (0.00 sec)
+  5)Creating another table 'Library 1 (view) and inserting rows from library i.e. using view:
+      •	mysql> create view library1 as select from library where price>140.00; Query OK, 0 rows affected (0.02 sec)
+  6)Querying Library1:
+      •	mysql> select from Library1;
+      •	3 rows in set (0.00 sec)
+RESULT:
+    Thus the above MYSQL commands are executed and the output is obtained.
