@@ -1,0 +1,52 @@
+                        LAB EXERCISES
+ EX.NO:04
+                APPLYING BUILT-IN FUNCTIONS
+AIM:
+   To create a table ‘Student’ with marks field for 10 students and to apply built-in functions to do calculations.
+PROCEDURE:
+    1)Using the database 'College':
+      •	mysql> USE College;
+      •	Database changed
+    2)Creating the table 'Student':
+      •	mysql> CREATE TABLE Student(Regno char(7), Name varchar(20),Dept varchar(15), Class varchar(11),ITE int(3), RDBMS int(3),BCS int(3));
+      •	Query OK, 0 rows affected, 3 warnings (0.05 sec)
+    3)Describing the table 'Student':
+      •	mysql> DESCRIBE Student;
+    4)Inserting rows in the 'Student':
+      •	mysql> INSERT INTO Student VALUES('CI1001','Harish’,'Civil', 'First Year',45,68,30);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES('C11002','Murugan','Civil', 'Second Year',80,85,95);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES('ME1001','Dharun', 'Mech', 'Third Year',66,75,77);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES('ME1002', 'Arun', 'Mech', 'Second Year',93,85,74);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES ('EE1001','Anitha', 'EEE', 'First Year',45,48,50);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES ('EE1002', 'Balan', 'EEE', 'Third Year',35,38,45);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES ('EC1001','Kiran', 'ECE', 'Second Year',72,68,69);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES ('EC1002', 'Keerthi', 'ECE', Third Year',98,96,94);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES ('CO1001','Priya', 'Computer', 'Third Year',72,78,94);
+      •	Query OK, 1 row affected (0.01 sec)
+      •	mysql> INSERT INTO Student VALUES ('CO1002', 'Gokul', 'Computer', 'First Year',70,86,89);
+      •	Query OK, 1 row affected (0.01 sec)
+    5)Querying the table 'Student':
+      •	mysql> SELECT* FROM Student;
+    6)	Applying Built-in functions:
+      a) COUNT():
+        •	mysql> SELECT COUNT(*) FROM Student;
+      b) SUM():
+        •	mysql> SELECT SUM(ITE+RDBMS+BCS) AS Mark FROM Student GROUP BY Regno;
+      c) MAX():
+        •	mysql> SELECT MAX(BCS) FROM Student WHERE Dept=’Mech’;
+      d) MIN():
+        •	mysql> SELECT MIN(RDBMS) FROM Student WHERE Dept=’Civil’;
+      e) STD();
+        •	mysql> SELECT STD(ITE) FROM Student;
+      f) AVG();
+        •	mysql> SELECT AVG(BCS) FROM Student WHERE Dept=’EEE’;
+RESULT:
+     Thus the above MYSQL commands are executed and the output is obtained.
