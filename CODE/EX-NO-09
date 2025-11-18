@@ -1,0 +1,46 @@
+                        LAB EXERCISES
+ EX.NO:09
+                    USING STORED PROCEDURE
+AIM:
+  To create a stored procedure to get employee details from employee  table.
+PROCEDURE:
+  1)Using the database 'College':
+      •	mysql> USE College;
+      •	Database changed
+  2)Create the table Employee:
+      •	mysql> CREATE TABLE Employee (Employee_ id int(3) primary key, name varchar(60), address varchar(80),Designation varchar(20), Age int(2), dob date, doap date, salary int unsigned);
+      •	Query OK, 0 rows affected (0.19 sec)
+  3)Inserting rows into the table Employee:
+      •	mysql> insert into employee values(201, 'Prabu', 'Chennai', 'Principal', 59, '1962-04-21', '1985-09-23', 145000);
+      •	Query OK, 1 row affected (0.03 sec)
+      •	mysql> insert into employee values(202, 'Ranjith', 'Madurai', 'HOD', 49, '1972-03-11', '1995-08-23', 100000);
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into employee values (203, 'Kumar', 'Nagercoil', 'Senior Lecturer', 39,
+      •	'1982-04-12', '2004-07-23', 80000);
+      •	Query OK, 1 row affected (0.03 sec)
+      •	mysql> insert into employee values (204, 'Velu', 'Nagercoil', 'Lecturer', 29, '1992-04-11', '1985-09-23', 45000);
+      •	Query OK, 1 row affected (0.09 sec)
+  4)Querying the employee table:
+      •	mysql> SELECT * FROM Employee;
+      •	4 rows in set (0.00 sec)
+  5)Creating a procedure:
+      •	Enter the following commands in the file ex9.sql using notepad. Keep this file in e:\mysqlprograms.
+      •	DELIMITER //
+      •	DROP PROCEDURE IF EXISTS GetEmployeeDetails;
+      •	CREATE PROCEDURE GetEmployeeDetails(IN emp_input INT)
+      •	BEGIN
+      •	SELECT * 
+      •	FROM Employeedetails
+      •	WHERE `Employee I'd` = emp_input;
+      •	END //
+      •	DELIMITER ;
+  6)Executing the above procedure:
+      •	mysql>source e:\mysqlprograms\ex9.sql
+  7)Calling the procedure to get the output:
+      •	mysql> call Get Employee Details (203);
+      •	1 row in set (0.00 sec)
+      •	mysql> call GetEmployeeDetails(206);
+      •	Empty set (0.00 sec)
+      •	Query OK, 0 rows affected (0.00 sec)
+ RESULT:
+      Thus the above MYSQL commands are executed and the output is  obtained.
