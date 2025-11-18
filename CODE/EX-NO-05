@@ -1,0 +1,81 @@
+EX.NO:05
+              APPLYING FLOW CONTROL STATEMENTS
+AIM:
+  To create a table Bank and to apply flow control statements to do some transactions using the database College.
+PROCEDURE:
+    1)Using the database 'College':
+        •	mysql> USE College;
+        •	Database changed
+    2)Create the table Bank:
+        •	CREATE TABLE Bank (`Account-No` CHAR(6) PRIMARY KEY, `Customer Name ` VARCHAR(15), Balance DECIMAL(15,2));
+        •	Query OK, 0 rows affected, 3 warnings (0.05 sec)
+        •	mysql> DESCRIBE Bank;
+        •	3 rows in set (0.02 sec)
+    3)Inserting rows into the table Bank:
+        •	mysql> INSERT INTO Bank VALUES ('AOB001', 'Raj', 20000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Bank VALUES ('AOB002', 'Shiv', 10000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Bank VALUES ('AOB003', 'Kanthan', 15000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Bank VALUES ('AOB004', 'Priya', 50000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Bank VALUES ('AOB005',  'Latha', 30000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+    4)Querying the table Bank:
+        •	mysql> SELECT * FROM Bank;
+        •	5 rows in set (0.01 sec)
+    5)Create a Table Transaction:
+        •	mysql>CREATE TABLE Transaction(`Account-NO` CHAR(6), TType ENUM('Deposit', 'Withdrawal'), Amount DECIMAL(15,2),FOREIGN KEY (`Account-NO`) REFERENCES Bank(`Account-NO));
+        •	Query OK, 0 rows affected (0.06 sec)
+        •	mysql> DESC Transaction;
+        •	3 rows in set (0.00 sec)
+    6)Querying Transaction without inserting rows:
+        •	mysql>SELECT * FROM Transaction;
+        •	Empty set (0.00 sec)
+    7)Inserting a row into transaction using variables:
+        •	mysql> SET @AccId = 'AOB004';
+        •	Query OK, 0 rows affected (0.00 sec)
+        •	mysql> SET @TranType = 'Withdrawal';
+        •	Query OK, 0 rows affected (0.00 sec)
+        •	mysql> SET @Amo = 2000;
+        •	Query OK, 0 rows affected (0.00 sec)
+        •	mysql> INSERT INTO Transaction(`Account-NO`, TType, Amount) VALUES (@AccId, @TranType, @Amo);
+        •	Query OK, 1 row affected (0.01 sec)
+    8)Using a flow control statement WHEN for withdrawal:
+        •	mysql> UPDATE Bank 
+        •	SET Balance = CASE
+          -> WHEN @TranType = 'Withdrawal'
+          -> THEN
+          -> Balance - @Amo
+          -> ELSE
+          -> Balance
+          -> END
+          -> WHERE `Account-NO` = @AccId;
+        •	Query OK, 1 row affected (0.01 sec)
+        •	Rows matched: 1  Changed: 1  Warnings: 0
+        •	SELECT * FROM Bank;
+        •	5 rows in set (0.00 sec)
+    9)	Inserting a Row into Transaction using variables:
+        •	mysql> SET @AccId = 'AOB002';
+        •	Query OK, 0 rows affected (0.00 sec)
+        •	mysql> SET @TranType = 'Deposit';
+        •	Query OK, 0 rows affected (0.00 sec)
+        •	mysql> SET @Amo = 1000;
+        •	Query OK, 0 rows affected (0.00 sec)
+        •	mysql> INSERT INTO Transaction (`Account-NO`, TType, Amount)  VALUES (@AccId, @TranType, @Amo);
+        •	Query OK, 1 row affected (0.01 sec)
+    10)	Using flow control IF() for deposit:
+        •	mysql> UPDATE Bank 
+           -> SET Balance = IF(@TranType = 'Deposit', Balance + @Amo, Balance) 
+           -> WHERE `Account-NO `= @AccId;
+        •	Query OK, 1 row affected (0.01 sec)
+        •	Rows matched: 1  Changed: 1  Warnings: 0
+    11)	Querying transaction:
+        •	mysql> SELECT * FROM Transaction ORDER BY `Account-NO`;
+        •	2 rows in set (0.00 sec)
+    12)	Querying bank:
+        •	mysql> SELECT * FROM Bank;
+        •	5 rows in set (0.00 sec)
+RESULT:
+    Thus the above MYSQL commands are executed and the output is obtained.
