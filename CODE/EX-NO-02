@@ -1,0 +1,23 @@
+                              LAB EXERCISES
+EX.NO:02
+            CREATING A DATABASE, SHOWING AND BACKING UP DATABASES
+AIM:
+   To write query to create a database, show and backing up databases.
+PROCEDURE:
+      1)Creating a database:
+            •	mysql> create database polytechnic;
+            •	Query OK, 1 row affected (0.01 sec).
+      2)Showing databases:
+            •	mysql> show databases;
+      3)Backup the database:
+            •	Create a folder mysqlprograms in E: drive to store the sql files
+            •	Use mysqldump command to backup the database.
+            •	c:\Program Files\MySQL\MySQL Server 8.0\bin>mysqldump -u root -p polytechnic>e: \mysqlprograms\polytechnic.sql
+            •	Enter password: *****
+            •	In E:\mysqlprograms folder, polytechnic.sql file is created which is the backup of polytechnic database.
+      4)Restoring the database:
+            •	To restore the database polytechnic available in the file e:\mysqlprograms\polytechnic.sql, give the following command
+            •	c:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p polytechnic<e:\mysqlprograms\polytechnic.sql
+            •	Enter password: *****
+RESULT:
+     Thus the above MYSQL commands are executed and the output is obtained.
