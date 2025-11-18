@@ -1,0 +1,67 @@
+                          LAB EXERCISES
+ EX.NO:08
+                     PERFORMING JOIN AND UNION
+AIM:
+   To create any two tables with common column name and to perform join and union.
+PROCEDURE:
+    1)Using the database 'College':
+        •	mysql> USE College;
+        •	Database changed
+    2)Create the table Employee:
+        •	mysql> CREATE TABLE Employee(`Emp-id` char(5), `Emp-name` varchar(20),Age int(2), Address varchar(15), Deptid int(4));
+        •	Query OK, 0 rows affected, 2 warnings (0.04 sec)
+    3)Describing the table 'Student':
+        •	mysql> desc Employee;
+        •	5 rows in set (0.02 sec)
+    4)Inserting rows into the table ‘Employee’:
+        •	mysql> insert into Employee values('EC101','Arunachalam', 55, 'Nagercoil', 1040);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('EC102','Malarvizhi', 46, 'Kanyakumari", 1040);
+        •	 Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('EC103', 'Kanthamaran', 35, 'Madurai", 1040); 
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('CO101', 'Indhumathi', 50, Tirunelveli', 1052);
+        •	 Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('CO102', 'Raghavan', 28, 'Tenkasi', 1052);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('ME101', 'Balakrishnan', 48, 'Nagercoil', 1020);
+        •	 Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('ME102', 'Rajkumar', 25, 'Valliyoor', 1020);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('EE101', 'Nanthakumar', 53, 'Nagercoil', 1030);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('EE102', 'Arunkumar', 35, 'Aralvoimozhi', 1030);
+        •	 Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into Employee values('EE103', 'Tamizhkodi', 26, Nagercoil', 1030);
+        •	Query OK, 1 row affected (0.01 sec)
+    5)Querying the table ‘Employee’:
+        •	mysql> SELECT * FROM Employee;
+        •	10 rows in set (0.00 sec)
+    6)Creating a table Department:
+        •	mysql> create table department(deptid int(4), deptname varchar(8), strength int(2)); Query OK, 0 rows affected, 2 warnings (0.04 sec)
+        •	mysql> Desc Department;
+        •	3 rows in set (0.00 sec)
+    7)Inserting rows into the table department:
+        •	mysql> insert into department values (1020,'Mech',63);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into department values (1030,'EEE',63);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into department values (1040,'ECE',46);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> insert into department values (1052, 'Computer',30); 
+        •	Query OK, 1 row affected (0.01 sec)
+    8)Querying the table department:
+        •	mysql> SELECT FROM Department;
+        •	4 rows in set (0.00 sec)
+    9)Performing join on the tables Employee and Department:
+        •	mysql> SELECT `Emp-id`, `Emp-Name`, Age, Address, `Dept-Name` FROM Employee JOIN Department ON `Employee. `Dept-id`= Department. `Dept-id`;
+        •	10 rows in set (0.00 sec)
+    10)Performing Union on the tables Employee and Department:
+        a) UNION:
+            •	mysql> SELECT `Dept-id` FROM Employee UNION SELECT `Dept-id` FROM Department;
+            •	4 rows in set (0.00 sec)
+        b) UNION ALL:
+            •	mysql>SELECT `Dept-id` FROM Employee UNION ALL SELECT `Dept-id` FROM Department;
+            •	14 rows in set (0.00 sec)
+RESULT:
+      Thus the above MYSQL commands are executed and the output is  obtained.
