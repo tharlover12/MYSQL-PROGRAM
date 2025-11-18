@@ -1,0 +1,121 @@
+                    LAB EXERCISES
+EX.NO:10
+                  TRIGGER AND CURSOR
+AIM:
+   To create programs for using trigger and cursor.
+PROCEDURE:
+1)Using the database 'College':
+    •	mysql> USE College;
+    •	Database changed
+(a) Using Trigger:
+  1.Creating a table 'Authors':
+      •	mysql> create table authors(author_id int, name varchar(60),title_count int);
+      •	Query OK, 0 rows affected (0.20 sec)
+  2.Inserting rows into the table authors:
+      •	mysql> insert into authors values (301,'R.K.Selva Kumar',3);
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into authors values(302, Edwin Dayanand",3);
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into authors values (303, 'A.Balakrishnan', 3);
+      •	Query OK, 1 row affected (0.04 sec)
+  3.Querying the table authors:
+      •	mysql> select from authors;
+      •	3 rows in set (0.00 sec)
+  4.Creating a table titles:
+      •	mysql> create table titles(Author_ id int, name varchar(512));
+      •	Query OK, 0 rows affected (0.21 sec)
+  5.Inserting rows into the table titles:
+      •	mysql> insert into titles values (301,'C Programming');
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into titles values(301,'Data Structures using C');
+      •	Query OK, 1 row affected (0.03 sec)
+      •	mysql> insert into titles values(301, 'Java Programming');
+      •	Query OK, 1 row affected (0.03 sec)
+      •	mysql> insert into titles values (302,'.Net Programming'); 
+      •	Query OK, 1 row affected (0.05 sec)
+      •	mysql> insert into titles values (302, 'RDBMS'); 
+      •	Query OK, 1 row affected (0.03 sec)
+      •	mysql> insert into titles values(302, 'Computer Hardware and Servicing');
+      •	Query OK, 1 row affected (0.05 sec)
+      •	mysql> insert into titles values(303, 'Electrical Machines-l');
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into titles values (303, Electrical Machines-II'); Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into titles values (303, 'Control of Machines');
+      •	Query OK, 1 row affected (0.04 sec)
+  6.Querying the table titles:
+      •	mysql> select from titles;
+      •	9 rows in set (0.00 sec)
+  7.Creating a trigger to update the title count of authors table when inserting into titles table:
+      •	Enter the following commands in the file ex10a.sql using notepad. Keep this file in e:\mysqlprograms.
+      •	DELIMITER $$
+      •	CREATE TRIGGER ins_count AFTER INSERT ON Titles
+      •	FOR EACH ROW
+      •	BEGIN
+      • UPDATE Authors 
+      •	SET Title_Count = Title_Count + 1
+      •	WHERE Author_Id = NEW.author_id;
+      •	END $$
+      •	DELIMITER ;
+  8.Executing the above trigger:
+      •	mysql>source e:\mysqlprograms\ex10a.sql
+  9.Verifying trigger event:
+      •	mysql> insert into titles values(303, Measurements and Instruments');
+      •	Query OK, 1 row affected (0.07 sec)
+      •	mysql> select * from authors;
+      •	3 rows in set (0.00 sec)
+      •	mysql> insert into titles values(303, Electrical Drives and Control);
+      •	Query OK, 1 row affected (0.05 sec)
+  10.Querying the above trigger:
+      •	mysql> select * from titles;
+      •	11 rows in set (0.00 sec)
+      •	mysql> select * from authors;
+      •	3 rows in set (0.00 sec)
+(b) Using Cursor:
+  1.Creating a table salary:
+      •	mysql> create table salary(emp_no int(4) primary key,emp_name varchar(30),designation varchar(25), department varchar(30), basic int(5),da_percent int(3), ma decimal(6,2), other_allowance decimal(6,2),deduction decimal(6,2));
+      •	Query OK, 0 rows affected (0.21 sec)
+  2.Inserting rows into the table salary:
+      •	mysql> insert into salary values(1, 'Paranthraman. S', 'Manager', 'Accounts’,6000,45,200,250,1500);
+      •	Query OK, 1 row affected (0.02 sec)
+      •	mysql> insert into salary values(2, 'Azhagesan.S', 'Asst. Manager','Accounts',4000,45,200,200,1200);
+      •	Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into salary values (3, 'Devi Priya.D','Steno', 'Sales', 2000,45,100,50,200);
+      •	Query OK, 1 row affected (0.04 sec)
+  3.Querying the table salary:
+      •	mysql> select * from salary;
+      •	3 rows in set (0.00 sec)
+  4.Creating a cursor:
+      •	Enter the following commands in the file ex10b.sql using notepad. Keep this file in e:\mysqlprograms.
+      •	DELIMITER $$
+      •	CREATE PROCEDURE cursorhandling(IN emp_id INT)
+      •	BEGIN
+      •	DECLARE done INT DEFAULT 0;
+      •	DECLARE no INT; DECLARE name VARCHAR(25); DECLARE sal DECIMAL(8,2);
+      •	DECLARE c CURSOR FOR
+      •	SELECT emp_no, emp_name,
+      •	basic + (da_percent*basic/100) + ma + other_allowance - deduction
+      •	FROM salary;
+      •	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+      •	OPEN c;
+      •	loop1: LOOP
+      •	FETCH c INTO no, name, sal;
+      •	IF done = 1 THEN LEAVE loop1; END IF;
+      •	IF no = emp_id THEN
+      •	UPDATE salary
+      •	SET basic=3000, da_percent=50, ma=500,
+      •	other_allowance=1250, deduction=2777
+      •	WHERE emp_no=emp_id;
+      •	END IF;
+      •	END LOOP;
+      •	CLOSE c;
+      •	END $$
+      •	DELIMITER ;
+  5.Executing the above cursor:
+      •	mysql>source e:\mysqlprograms\ex10b.sql
+  6.Using the cursor to update the employee salary:
+      •	mysql> call cursorhandling(2);
+      •	Query OK, 0 rows affected (0.07 sec)
+      •	mysql> select * from salary;
+      •	3 rows in set (0.00 sec)
+RESULT:
+    Thus the above MYSQL commands are executed and the output is  obtained.
