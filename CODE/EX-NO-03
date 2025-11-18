@@ -1,0 +1,73 @@
+                      LAB EXERCISES
+EX.NO:03
+              CREATING A TABLE AND ISERTING ROWS
+AIM:
+   To create a database named 'College' and to create a table for student and Employee with the fields as we like.
+PROCEDURE:
+    1)Creating the database 'College':
+        •	mysql> CREATE DATABASE College;
+        •	Query OK, 1 row affected (0.01 sec).
+    2)Using the database 'College':
+        •	mysql> USE College;
+        •	Database changed
+    3)Creating the table 'Student':
+        •	mysql> CREATE TABLE Student(Regno char(6), Name varchar(20), Sex char(1), Age int(2), Dept varchar(8), Class varchar(11));
+        •	Query OK, 0 rows affected, 1 warning (0.05 sec)
+    4)Describing the table 'Student':
+        •	mysql> DESCRIBE Student;
+    5)Inserting rows in the table'Student':
+        •	mysql> INSERT INTO Student VALUES('CI1001','Harish','M',18,'Civil', 'First Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES('C11002','Murugan', 'M',18,'Civil', 'Second Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES('ME1001','Dharun','M', 19, 'Mech', 'Third Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES('ME1002', 'Arun', 'M', 18,'Mech','Second Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES ('EE1001','Anitha', 'F',16,'EEE', 'First Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES ('EE1002', 'Balan', 'M',18,'EEE', 'Third Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES ('EC1001','Kiran', 'M', 19,'ECE', 'Second Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES ('EC1002', 'Keerthi', 'F', 19,'ECE', Third Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES ('CO1001','Priya', 'F', 18,'Computer', 'Third Year');
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Student VALUES ('CO1002', 'Gokul', 'M', 16, 'Computer', 'First Year');
+        •	Query OK, 1 row affected (0.01 sec)
+    6)Querying the table 'Student':
+        •	mysql> SELECT* FROM Student;
+        •	10 rows in set (0.00 sec)
+    7)Creating table 'Employee':
+        •	mysql> CREATE TABLE Employee (Employee number char(5), Employee name varchar(20), Designation varchar(10), Dept varchar(8), DOJ date, Salary float);
+        •	Query OK, 0 rows affected (0.04 sec)
+    8)Describing the table 'Employee':
+        •	mysql> DESCRIBE Employee;
+        •	6 rows in set (0.00 sec)
+    9)Inserting rows in 'Employee':
+        •	mysql> INSERT INTO Employee VALUES('EC101','Arunachalam', 'Principal','ECE','1988-05-18',200000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES ('EC102','Malarvizhi', 'HOD', 'ECE', '1993-09-12',175000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES('EC103','Kanthamaran', 'Lecturer', 'ECE','2012-10-08',90000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES('CO101','Indhumathi', 'HOD','Computer','1990-08-03',185000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES('CO102','Raghavan', 'Lecturer','Computer', '2018-04-20',65000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES ('ME101','Balakrishnan', 'HOD', 'Mech','1995-02-23',165000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES ('ME102', 'Rajkumar', 'Lecturer', 'Mech','2020-01-05',65000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES ('AD101','Nanthakumar', 'Assistant','Office', '1999-02-24',55000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES ('AD102','Nayaki', 'Typist', 'Office','2018-08-25',40000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+        •	mysql> INSERT INTO Employee VALUES ('AD103', 'Kannan', 'Cashier','Office', '2015-09-10',45000.00);
+        •	Query OK, 1 row affected (0.01 sec)
+    10)Querying the table 'Employee':
+        •	mysql> SELECT * FROM Employee;
+        •	10 rows in set (0.00sec)
+RESULT:
+    Thus the above MYSQL commands are executed and the output is obtained.
