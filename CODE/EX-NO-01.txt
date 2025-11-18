@@ -1,0 +1,31 @@
+                                        LAB EXERCISES
+EX.NO:01
+                            INSTALLING MYSQL SERVER AND WORKBENCH IN WINDOWS
+AIM:
+   To install, configure and connect to MYSQL server and MYSQL workbench in Windows.
+PROCEDURE:
+   MYSQL SERVER:
+      1.Download the MySQL Installer from the official website: http://dev.mysql.com/downloads.
+      2.Run the installer and choose Developer Default to install MySQL Server, Workbench, and tools.
+      3.Install needed files that the installer asks for.
+      4.Configure MySQL Server by selecting server type and setting a root password.
+      5.Open MySQL Workbench, create a connection using the root login, and start managing databases.
+   MYSQL WORKBENCH:
+      1.One tool we can use to remotely connect to your server is MySQL workbench.
+      2.MySQL workbench is a free tool we can use to connect to the server databases from our personal computer. 
+      3.While installing MySQL server, MySQL workbench is also installed.
+      4.After this is installed, follow the steps below to set up the remote connection.
+      5.After MySQL Workbench is installed, it should open on your system, as shown in the screen below.
+      6.To make the connection, double click the box designated by the arrow.
+      7.Enter the password. 
+      8.After entering the password, you are able to connect with the Server.
+      9.To make a new connection, click the plus (+) icon or go to the menu bar → Database → Connect to Database. 
+      10.The following screen appears. 
+      11.Now, fill all the details.
+      12.Give the password.
+      13.After entering all the details, click Test Connection to test the database connectivity. 
+      14.If the connection is successful, you will get the following screen.
+      15.Now, click OK →OK.
+      16.After finishing all the setup, it will open the MySQL Workbench screen where MySQL command can be executed.
+RESULT:
+    Thus MYSQL server and MYSQL workbench are installed in windows, configured and workbench connected to MYSQL server successfully.
