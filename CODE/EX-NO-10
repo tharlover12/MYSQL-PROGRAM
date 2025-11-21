@@ -39,7 +39,8 @@ PROCEDURE:
       •	Query OK, 1 row affected (0.05 sec)
       •	mysql> insert into titles values(303, 'Electrical Machines-l');
       •	Query OK, 1 row affected (0.04 sec)
-      •	mysql> insert into titles values (303, Electrical Machines-II'); Query OK, 1 row affected (0.04 sec)
+      •	mysql> insert into titles values (303, Electrical Machines-II'); 
+      • Query OK, 1 row affected (0.04 sec)
       •	mysql> insert into titles values (303, 'Control of Machines');
       •	Query OK, 1 row affected (0.04 sec)
   6.Querying the table titles:
